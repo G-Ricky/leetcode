@@ -28,6 +28,7 @@ public class Main {
         com.leetcode.problem1013.Tester.test();
 //        com.leetcode.problem1235.Tester.test();
         com.leetcode.interview29.Tester.test();
+        com.leetcode.interview46.TestCases.test();
     }
 
     private void test() throws Exception {
