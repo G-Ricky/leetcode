@@ -12,6 +12,7 @@ public class Main {
     private static final Map<Package, List<Class<?>>> PACKAGE_CLASSES_MAP = new HashMap<>();
 
     public static void main(String[] args) {
+        com.leetcode.problem14.TestCases.test();
         com.leetcode.problem110.Tester.test();
         com.leetcode.problem121.Tester.test();
         com.leetcode.problem121.Tester.testStandard();
