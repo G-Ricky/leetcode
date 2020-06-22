@@ -1,5 +1,9 @@
 package com.leetcode;
 
+import com.leetcode.solution.interview46.TestCases;
+import com.leetcode.solution.problem1013.Tester;
+import com.leetcode.solution.problem703.TestCases2;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -12,24 +16,24 @@ public class Main {
     private static final Map<Package, List<Class<?>>> PACKAGE_CLASSES_MAP = new HashMap<>();
 
     public static void main(String[] args) {
-        com.leetcode.problem14.TestCases.test();
-        com.leetcode.problem110.Tester.test();
-        com.leetcode.problem121.Tester.test();
-        com.leetcode.problem121.Tester.testStandard();
-        com.leetcode.problem128.TestCases.test();
-        com.leetcode.problem238.Tester.test();
-        com.leetcode.problem239.TestCases2.test();
-        com.leetcode.problem300.Tester.test();
-        com.leetcode.problem543.Tester.test();
-        com.leetcode.problem695.Tester.test();
-        com.leetcode.problem703.TestCases.test();
-        com.leetcode.problem703.TestCases2.test();
-        com.leetcode.problem990.TestCases.test();
+        com.leetcode.solution.problem14.TestCases.test();
+        com.leetcode.solution.problem110.Tester.test();
+        com.leetcode.solution.problem121.Tester.test();
+        com.leetcode.solution.problem121.Tester.testStandard();
+        com.leetcode.solution.problem128.TestCases.test();
+        com.leetcode.solution.problem238.Tester.test();
+        com.leetcode.solution.problem239.TestCases2.test();
+        com.leetcode.solution.problem300.Tester.test();
+        com.leetcode.solution.problem543.Tester.test();
+        com.leetcode.solution.problem695.Tester.test();
+        com.leetcode.solution.problem703.TestCases.test();
+        TestCases2.test();
+        com.leetcode.solution.problem990.TestCases.test();
 //        com.leetcode.problem880.Tester.test();
-        com.leetcode.problem1013.Tester.test();
+        Tester.test();
 //        com.leetcode.problem1235.Tester.test();
-        com.leetcode.interview29.Tester.test();
-        com.leetcode.interview46.TestCases.test();
+        com.leetcode.solution.interview29.Tester.test();
+        TestCases.test();
     }
 
     private void test() throws Exception {
