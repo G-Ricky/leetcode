@@ -1,6 +1,7 @@
 package com.leetcode.serializer;
 
 import com.leetcode.TreeNode;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -57,15 +58,18 @@ public class TreeSerializer implements Serializer<TreeNode> {
 
     @Override
     public TreeNode deserialize(String text) {
-        if ("[null]".equals(text)) {
-            return null;
-        }
+        checkFormat(text = text.trim());
 
-        String[] elements = text.substring(1, text.length() - 1).split(",");
+        String[] elements = text.substring(1, text.length() - 1).split(",", -1);
         TreeNode[] nodes = new TreeNode[elements.length];
         for (int i = 0; i < elements.length; ++i) {
+            elements[i] = StringUtils.trim(elements[i]);
             if (!"null".equals(elements[i])) {
-                nodes[i] = new TreeNode(Integer.parseInt(elements[i]));
+                try {
+                    nodes[i] = new TreeNode(Integer.parseInt(elements[i]));
+                } catch (NumberFormatException e) {
+                    throw new DeserializeException(String.format("Unexpected token '%s', expected number or null.", elements[i]), e);
+                }
             }
         }
 
@@ -86,5 +90,20 @@ public class TreeSerializer implements Serializer<TreeNode> {
         }
 
         return nodes[0];
+    }
+
+    private void checkFormat(String text) {
+        if (text == null) {
+            throw new DeserializeException("text can not be null.");
+        }
+        if (text.length() < 3) {
+            throw new DeserializeException("text is too short.");
+        }
+        if (text.charAt(0) != '[') {
+            throw new DeserializeException("text must start with '['.");
+        }
+        if (text.charAt(text.length() - 1) != ']') {
+            throw new DeserializeException("text must end with ']'.");
+        }
     }
 }
