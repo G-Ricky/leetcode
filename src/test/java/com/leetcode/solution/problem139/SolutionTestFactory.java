@@ -9,7 +9,7 @@ import java.util.stream.Stream;
  * @author Ricky
  * @date 2020-06-25 17:42:55
  */
-public class TrieSolutionTestFactory {
+public class SolutionTestFactory {
 
     static Stream<Arguments> test() {
         return Stream.of(
