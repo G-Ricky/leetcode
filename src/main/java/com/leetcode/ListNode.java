@@ -4,14 +4,13 @@ import java.util.Objects;
 
 /**
  * @author Ricky
- * @date 2020-06-16 00:52:16
+ * @date 2020-06-26 17:48:28
  */
-public class TreeNode {
+public class ListNode {
     public int val;
-    public TreeNode left;
-    public TreeNode right;
+    public ListNode next;
 
-    public TreeNode(int x) {
+    public ListNode(int x) {
         val = x;
     }
 
@@ -19,14 +18,13 @@ public class TreeNode {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TreeNode node = (TreeNode) o;
+        ListNode node = (ListNode) o;
         return val == node.val &&
-            Objects.equals(left, node.left) &&
-            Objects.equals(right, node.right);
+            Objects.equals(next, node.next);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(val, left, right);
+        return Objects.hash(val, next);
     }
 }
