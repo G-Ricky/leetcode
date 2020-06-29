@@ -5,6 +5,8 @@ import org.junit.jupiter.params.provider.Arguments;
 
 import java.util.stream.Stream;
 
+import static com.leetcode.utils.ListNodeUtils.link;
+
 /**
  * @author Ricky
  * @date 2020-06-26 18:05:22
@@ -69,23 +71,5 @@ public class ListNodeSerializerTestFactory {
             Arguments.of(link(nodes, 9, 14), "[1,1,1,1,2]"),
             Arguments.of(link(nodes, 14, 16), "[1,2]")
         );
-    }
-
-    private static ListNode link(ListNode[] nodes, int beginIndex, int endIndex) {
-        if (beginIndex < 0) {
-            throw new IllegalArgumentException();
-        }
-        if (endIndex > nodes.length) {
-            throw new IllegalArgumentException();
-        }
-        if (beginIndex >= endIndex) {
-            throw new IllegalArgumentException();
-        }
-
-        for (int i = beginIndex + 1; i < endIndex; ++i) {
-            nodes[i - 1].next = nodes[i];
-        }
-
-        return nodes[beginIndex];
     }
 }
