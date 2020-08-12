@@ -1,5 +1,6 @@
 package com.leetcode.solution.problem43;
 
+import com.github.houbb.junitperf.core.annotation.JunitPerfConfig;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
