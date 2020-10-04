@@ -32,4 +32,13 @@ class Solution {
 
         return res;
     }
+
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
 }
