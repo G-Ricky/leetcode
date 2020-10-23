@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import com.leetcode.serializer.TreeSerializer;
+
 import java.util.Objects;
 
 /**
@@ -28,5 +30,9 @@ public class TreeNode {
     @Override
     public int hashCode() {
         return Objects.hash(val, left, right);
+    }
+
+    public static TreeNode fromString(String str) {
+        return new TreeSerializer().deserialize(str);
     }
 }

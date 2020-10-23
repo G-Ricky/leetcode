@@ -44,7 +44,8 @@ public class ListNodeSerializer implements Serializer<ListNode> {
                 nodes[i - 1].next = nodes[i];
             }
         }
-
-        return nodes[0];
+        return nodes.length == 0
+            ? null
+            : nodes[0];
     }
 }

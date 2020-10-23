@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import com.leetcode.serializer.ListNodeSerializer;
+
 import java.util.Objects;
 
 /**
@@ -34,5 +36,14 @@ public class ListNode {
     @Override
     public int hashCode() {
         return Objects.hash(val, next);
+    }
+
+    /**
+     * Junit {@link org.junit.jupiter.params.converter.FallbackStringToObjectConverter} 识别的 字符串转 ListNode 工厂方法
+     * @param str
+     * @return
+     */
+    public static ListNode fromString(String str) {
+        return new ListNodeSerializer().deserialize(str);
     }
 }
