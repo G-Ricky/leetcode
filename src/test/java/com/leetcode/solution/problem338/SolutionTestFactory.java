@@ -12,11 +12,10 @@ import java.util.stream.Stream;
 public class SolutionTestFactory {
 
     public static Stream<Object[]> test() {
-        Serializer<int[]> serializer = new IntArraySerializer();
         return Stream.of(
-            new Object[]{serializer.deserialize("[0,1,1]"), 2},
-            new Object[]{serializer.deserialize("[0,1,1,2,1,2]"), 5},
-            new Object[]{serializer.deserialize("[0,1,1,2,1,2,2,3,1,2,2,3,2,3,3,4,1,2,2,3,2]"), 20}
+            new Object[]{"[0,1,1]", 2},
+            new Object[]{"[0,1,1,2,1,2]", 5},
+            new Object[]{"[0,1,1,2,1,2,2,3,1,2,2,3,2,3,3,4,1,2,2,3,2]", 20}
         );
     }
 }
