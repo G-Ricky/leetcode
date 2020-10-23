@@ -1,0 +1,17 @@
+# testCase.yaml 版本
+version: 1.0
+# 测试模式
+  # normal: 常规 solution
+mode: normal
+# 结果测试方式
+  # identical: Objects.equals(o1, o2) == true;
+resultHandler: identical
+# resultHandlerClass:
+# 测试用例
+testCase:
+  -
+    input: '[1,2]'
+    output: false
+  -
+    input: '[1,2,2,1]'
+    output: true

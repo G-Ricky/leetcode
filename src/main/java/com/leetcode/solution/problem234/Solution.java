@@ -1,6 +1,9 @@
 package com.leetcode.solution.problem234;
 
 import com.leetcode.ListNode;
+import com.leetcode.core.params.LeetCodeSource;
+import com.leetcode.core.params.TestContext;
+import org.junit.jupiter.params.ParameterizedTest;
 
 /**
  * 回文链表
@@ -9,6 +12,13 @@ import com.leetcode.ListNode;
  * @date 2020-10-23 13:52:31
  */
 public class Solution {
+
+    @LeetCodeSource(target = "isPalindrome")
+    @ParameterizedTest
+    void test(TestContext context) {
+        context.test(this);
+    }
+
     public boolean isPalindrome(ListNode head) {
         if (head == null || head.next == null) {
             return true;
