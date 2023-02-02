@@ -3,6 +3,7 @@ package com.leetcode.serializer;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.StringJoiner;
 
 /**
  * 二维 int 数组解析器
@@ -38,7 +39,15 @@ public class IntArray2Serializer implements Serializer<int[][]> {
 
     @Override
     public String serialize(int[][] serializable) {
-        return null;
+        StringJoiner outerJoiner = new StringJoiner(",", "[", "]");
+        for (int[] nums : serializable) {
+            StringJoiner innerJoiner = new StringJoiner(",", "[", "]");
+            for (int num : nums) {
+                innerJoiner.add(String.valueOf(num));
+            }
+            outerJoiner.add(innerJoiner.toString());
+        }
+        return outerJoiner.toString();
     }
 
     @Override
@@ -95,7 +104,7 @@ public class IntArray2Serializer implements Serializer<int[][]> {
 
     private List<Token> getTokens(String text) {
         List<Token> token = new LinkedList<>();
-        char[] buffer = new char[10];
+        char[] buffer = new char[11];
         int j = 0;
         for (int i = 0; i < text.length(); ++i) {
             char ch = text.charAt(i);
@@ -111,8 +120,8 @@ public class IntArray2Serializer implements Serializer<int[][]> {
                 token.add(Token.of("]", TokenType.RIGHT_PARENTHESES));
             } else if (ch == ',') {
                 token.add(Token.of(",", TokenType.COMMA));
-            } else if (Character.isDigit(ch)) {
-                if (j < 10) {
+            } else if (Character.isDigit(ch) || ch == '+' || ch == '-') {
+                if (j < 11) {
                     buffer[j++] = ch;
                 } else {
                     throw new DeserializeException(String.format("Number %s%c is too large.", String.valueOf(buffer), ch));
